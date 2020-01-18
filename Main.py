@@ -43,12 +43,12 @@ def predict():
     pipe2 = joblib.load('static/naiveBayesClassifier.pkl')
 
     resultGenrePredict = pipe[0].predict(X_New)
-    #resultEmosiPredict = pipe2[0].predict(X_New)
+    resultEmosiPredict = pipe2[0].predict(X_New)
 
 
 
-    #return jsonify({'genre': format(resultGenrePredict),'emosi' : format(resultEmosiPredict)})
-    return jsonify({'genre': format(resultGenrePredict)})
+    return jsonify({'genre': format(resultGenrePredict),'emosi' : format(resultEmosiPredict)})
+    #return jsonify({'genre': format(resultGenrePredict)})
 
 if __name__ == '__main__':
-    app.run(debug=True) #debug=True kalau deploy ga usah pakai ini dia print error
+    app.run() #debug=True kalau deploy ga usah pakai ini dia print error
